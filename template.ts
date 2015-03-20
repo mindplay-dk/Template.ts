@@ -16,7 +16,7 @@ module Template {
     return target;
   }
 
-  export function toAttrs(attrs:any, prefix?:string = ""):string {
+  export function toAttrs(attrs:any, prefix:string = ""):string {
     var atts= "";
     for(var key in attrs) {
       var lKey = key.toLowerCase(),
@@ -43,18 +43,18 @@ module Template {
   }
 
   // Children are swallowed up!
-  export function shortTag(name:string, atts?:any= {}):string {
-    return "<"+ name + toAttrs(atts) +"/>";
+  export function shortTag(name:string, attrs:any= {}):string {
+    return "<"+ name + toAttrs(attrs) +"/>";
   }
 
   // Tag Helpers:
-  export function image(src:string, attrs?:any= {}):string {
+  export function image(src:string, attrs:any= {}):string {
     return shortTag('img', merge(attrs, {
       src: src
     }));
   }
 
-  export function stylesheet(src:string, attrs?:any={}):string {
+  export function stylesheet(src:string, attrs:any={}):string {
     return shortTag('link', merge(attrs, {
       src: src,
       rel: "stylesheet",
